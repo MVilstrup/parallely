@@ -12,7 +12,6 @@
 #
 import os
 import sys
-import parallely
 sys.path.insert(0, os.path.abspath('..'))
 
 
@@ -23,7 +22,7 @@ copyright = '2021, Mikkel Vilstrup'
 author = 'Mikkel Vilstrup'
 
 # The full version, including alpha/beta/rc tags
-release = parallely.__version__
+release = "0.1.0"
 
 master_doc = "index"
 
