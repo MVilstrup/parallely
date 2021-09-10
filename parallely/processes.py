@@ -34,6 +34,12 @@ class ParallelFunction(ParalellyFunction):
 
 
 def parallel(func=None, max_workers=cpu_count()):
+    """
+
+    :param func:
+    :param max_workers:
+    :return:
+    """
     if func is None:
         return partial(parallel, max_workers=max_workers)
 

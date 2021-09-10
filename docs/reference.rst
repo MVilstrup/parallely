@@ -1,4 +1,4 @@
-``parallely`` API reference
+API reference
 =================================
 
 .. automodule:: parallely

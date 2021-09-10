@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90b85809-7a56-4009-a1ad-237f16c1f567" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/overview.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/overview.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/reference.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/reference.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parallely/coroutines.py" beforeDir="false" afterPath="$PROJECT_DIR$/parallely/coroutines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parallely/processes.py" beforeDir="false" afterPath="$PROJECT_DIR$/parallely/processes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parallely/threads.py" beforeDir="false" afterPath="$PROJECT_DIR$/parallely/threads.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -21,6 +21,12 @@ class ThreadedFunction(ParalellyFunction):
 
 
 def threaded(func=None, max_workers=cpu_count() * 10):
+    """
+    
+    :param func:
+    :param max_workers:
+    :return:
+    """
     if func is None:
         return partial(threaded, max_workers=max_workers)
 

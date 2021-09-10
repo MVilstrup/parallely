@@ -54,6 +54,12 @@ class AsyncedFunction(ParalellyFunction):
 
 
 def asynced(func=None, max_workers=None):
+    """
+
+    :param func:
+    :param max_workers:
+    :return:
+    """
     if func is None:
         return functools.partial(asynced, max_workers=max_workers)
 
