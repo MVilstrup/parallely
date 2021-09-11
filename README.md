@@ -10,7 +10,7 @@
 
 
 # Installation
-`pip install paralelly`
+`pip install parallely`
 
 # Multi Threading
 
