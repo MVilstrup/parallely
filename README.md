@@ -11,6 +11,8 @@
 # Installation
 `pip install paralelly`
 
+# Multi Threading
+
 ```python
 from parallely import threaded
 import requests
@@ -40,3 +42,7 @@ def fetch(min_val=100, max_val=1000, count=5):
 
 fetch.map(count=list(range(10)))
 ```
+
+# Multi Processing
+
+# Asynchronous
