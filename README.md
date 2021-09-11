@@ -5,9 +5,11 @@
 [![wheel](https://img.shields.io/pypi/wheel/parallely.svg)](https://pypi.org/project/parallely/)
 [![python](https://img.shields.io/pypi/pyversions/parallely.svg)](https://pypi.org/project/parallely/)
 [![Test Suite](https://github.com/mvilstrup/parallely/workflows/Test%20Suite/badge.svg)](https://github.com/mvilstrup/parallely/actions?query=workflow%3A%22Test+Suite%22)
-[![docs](https://readthedocs.org/projects/parallely/badge/?version=stable&style=flat)](https://parallely.readthedocs.io/en/stable/)
+[![docs](https://readthedocs.org/projects/parallely/badge/?version=latest)](https://parallely.readthedocs.io/en/latest/?badge=latest)
 
 
+# Installation
+`pip install paralelly`
 
 ```python
 from parallely import threaded

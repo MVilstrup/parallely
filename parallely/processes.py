@@ -12,9 +12,7 @@ class ParallelFunction(ParalellyFunction):
         return self._func(*args, **kwargs)
 
     def _serial_func(self, arg_list, kwarg_list):
-        return [
-            self._func(*args, **kwargs) for args, kwargs in zip(arg_list, kwarg_list)
-        ]
+        return [self._func(*args, **kwargs) for args, kwargs in zip(arg_list, kwarg_list)]
 
     def _chunks(self, l, n):
         """Yield successive n-sized chunks from l."""
