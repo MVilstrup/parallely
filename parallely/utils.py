@@ -2,7 +2,7 @@ from itertools import repeat
 
 
 def is_iterator(obj):
-    return hasattr(obj, '__iter__')
+    return hasattr(obj, "__iter__")
 
 
 def prepare_arguments(arg_list, kwarg_list):
