@@ -1,5 +1,6 @@
 from functools import partial
 from multiprocessing import cpu_count
+from typing import Callable
 
 from pathos.multiprocessing import ProcessingPool as Pool
 
@@ -36,7 +37,7 @@ class ParallelFunction(ParalellyFunction):
         return results
 
 
-def parallel(func=None, max_workers=cpu_count()):
+def parallel(func: Callable = None, max_workers: int = cpu_count()) -> ParallelFunction:
     """
 
     :param func:

@@ -1,6 +1,7 @@
 import asyncio
 import contextvars
 import functools
+from typing import Callable
 
 import nest_asyncio
 
@@ -54,7 +55,7 @@ class AsyncedFunction(ParalellyFunction):
         return loop.run_until_complete(_async_map(self._func, *args, **kwargs))
 
 
-def asynced(func=None, max_workers=None):
+def asynced(func: Callable = None, max_workers: int = None) -> AsyncedFunction:
     """
 
     :param func:

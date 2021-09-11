@@ -1,0 +1,10 @@
+[paths]
+source = paralelly
+
+[run]
+branch = true
+source = paralelly
+
+[report]
+show_missing = false
+precision = 1
