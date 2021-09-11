@@ -1,5 +1,14 @@
 # Parallely - Parallel Python made simple
 
+[![pypi](https://img.shields.io/pypi/v/parallely.svg)](https://pypi.org/project/parallely/)
+[![license](https://img.shields.io/pypi/l/parallely.svg)](https://github.com/mvilstrup/parallely/blob/master/LICENSE)
+[![wheel](https://img.shields.io/pypi/wheel/parallely.svg)](https://pypi.org/project/parallely/)
+[![python](https://img.shields.io/pypi/pyversions/parallely.svg)](https://pypi.org/project/parallely/)
+[![Test Suite](https://github.com/mvilstrup/parallely/workflows/Test%20Suite/badge.svg)](https://github.com/mvilstrup/parallely/actions?query=workflow%3A%22Test+Suite%22)
+[![docs](https://readthedocs.org/projects/parallely/badge/?version=stable&style=flat)](https://parallely.readthedocs.io/en/stable/)
+
+
+
 ```python
 from parallely import threaded
 import requests
