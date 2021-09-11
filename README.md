@@ -1,10 +1,11 @@
 # Parallely - Parallel Python made simple
 
 [![pypi](https://img.shields.io/pypi/v/parallely.svg)](https://pypi.org/project/parallely/)
-[![license](https://img.shields.io/pypi/l/parallely.svg)](https://github.com/mvilstrup/parallely/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/mvilstrup/parallely)](https://github.com/mvilstrup/parallely/blob/main/LICENSE)
 [![wheel](https://img.shields.io/pypi/wheel/parallely.svg)](https://pypi.org/project/parallely/)
 [![python](https://img.shields.io/pypi/pyversions/parallely.svg)](https://pypi.org/project/parallely/)
 [![Test Suite](https://github.com/mvilstrup/parallely/workflows/Test%20Suite/badge.svg)](https://github.com/mvilstrup/parallely/actions?query=workflow%3A%22Test+Suite%22)
+[![Coverage Status](https://coveralls.io/repos/github/MVilstrup/parallely/badge.svg?branch=main)](https://coveralls.io/github/MVilstrup/parallely?branch=main)
 [![docs](https://readthedocs.org/projects/parallely/badge/?version=latest)](https://parallely.readthedocs.io/en/latest/?badge=latest)
 
 
