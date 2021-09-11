@@ -1,9 +1,9 @@
 [paths]
-source = paralelly
+source = parallely
 
 [run]
 branch = true
-source = paralelly
+source = parallely
 
 [report]
 show_missing = false
