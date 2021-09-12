@@ -15,11 +15,13 @@ class ParallelFunction(ParalellyFunction):
     def _serial_func(self, arg_list, kwarg_list):
         return [self._func(*args, **kwargs) for args, kwargs in zip(arg_list, kwarg_list)]
 
-    def _chunks(self, l, n):
-        """Yield successive n-sized chunks from l."""
-        l = list(l)
-        for i in range(0, len(l), n):
-            yield l[i : i + n]
+    def _chunks(self, elements, n):
+        def chunker(elements, n):
+            steps = len(elements) // n
+            for i, index in enumerate(range(0, len(elements), steps)):
+                yield elements[index : index + steps] if i != n else elements[index:]
+
+        return list(chunker(elements, n))
 
     def map(self, *args, **kwargs):
         args, kwargs = prepare_arguments(args, kwargs)
@@ -27,11 +29,10 @@ class ParallelFunction(ParalellyFunction):
 
         with Pool(pool_size) as pool:
             results = []
-            for chunk in pool.map(
-                self._serial_func,
-                self._chunks(args, pool_size),
-                self._chunks(kwargs, pool_size),
-            ):
+
+            arg_chunks = self._chunks(args, pool_size)
+            kwarg_chunks = self._chunks(kwargs, pool_size)
+            for chunk in pool.map(self._serial_func, arg_chunks, kwarg_chunks):
                 results += chunk
 
         return results

@@ -15,35 +15,80 @@
 # Multi Threading
 
 ```python
+import time
 from parallely import threaded
-import requests
-
-@threaded(max_workers=500)
-def fetch_data(url):
-    return requests.get(url).json()
-
-# Use the function as usual for fine grained control, testing etc. 
-fetch_data("http://www.SOME-WEBSITE.com/data/cool-stuff")
-
-# Use a thread-pool to map over a list of inputs in concurrent manner
-fetch_data.map([
-    "http://www.SOME-WEBSITE.com/data/cool-stuff",
-    "http://www.SOME-WEBSITE.com/data/cool-stuff",
-    "http://www.SOME-WEBSITE.com/data/cool-stuff"
-])
-```
-
-```python
-from parallely import threaded
-import requests
 
 @threaded
-def fetch(min_val=100, max_val=1000, count=5):
-    return requests.get(f"http://www.randomnumberapi.com/api/v1.0/random?min={min_val}&max={max_val}&count={count}").json()
+def thread_function(name, duration=2):
+    print(f"Thread {name}: starting")
+    time.sleep(duration)
+    print(f"Thread {name}: finishing")
 
-fetch.map(count=list(range(10)))
+
+print("Synchronous")
+thread_function(1, duration=2)
+thread_function(2, duration=1)
+
+print()
+print("Asynchronous")
+thread_function.map(name=[1, 2], duration=[2, 1])
 ```
 
 # Multi Processing
 
+```python
+from time import time
+from random import randint
+from parallely import parallel
+
+
+@parallel
+def count_in_range(size, search_minimum, search_maximum):
+    """Returns how many numbers lie within `maximum` and `minimum` in a random array"""
+    rand_arr = [randint(0, 10) for _ in range(int(size))] 
+    return sum([search_minimum <= n <= search_maximum for n in rand_arr])
+
+size = 1e7
+
+print("Sequential")
+start_time = time()
+for _ in range(3):
+    result = count_in_range(size, search_minimum=1, search_maximum=2)
+    print(result, round(time() - start_time, 2), "seconds")
+
+print()
+
+print("Parallel")
+start_time = time()
+result = count_in_range.map(size=[size, size, size], search_minimum=1, search_maximum=2)
+print(result, round(time() - start_time, 2), "seconds")
+```
+
 # Asynchronous
+
+```python
+import asyncio
+import time
+from random import randint
+from parallely import asynced
+
+
+async def echo(delay, start_time):
+    await asyncio.sleep(randint(0, delay))
+    print(delay, round(time.time() - start_time, 1))
+
+@asynced
+async def main(counts):
+    start_time = time.time()
+    print(f"started at {time.strftime('%X')}")
+    
+    corr = []
+    for count in range(counts):
+        corr.append(echo(count, start_time))
+        
+    await asyncio.gather(*corr)
+
+    print(f"finished at {time.strftime('%X')}")
+    
+main(10)
+```
