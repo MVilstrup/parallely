@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "parallely"
-version = "0.2.0"
+version = "0.2.1"
 description = "The simplest way to utilize multiple threads, processes, and async functions in Python"
 authors = ["Mikkel Vilstrup <mikkel@vilstrup.dk>"]
 readme = "README.md"
