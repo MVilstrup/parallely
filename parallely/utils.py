@@ -1,8 +1,21 @@
+from collections import Counter, OrderedDict
 from itertools import repeat
 
 
+def is_dict(obj):
+    directly = isinstance(obj, (dict, OrderedDict, Counter))
+    indirectly = all(
+        [
+            (hasattr(obj, "items") and callable(obj.items)),
+            (hasattr(obj, "keys") and callable(obj.keys)),
+            (hasattr(obj, "values") and callable(obj.keys)),
+        ]
+    )
+    return directly or indirectly
+
+
 def is_iterator(obj):
-    return hasattr(obj, "__iter__")
+    return hasattr(obj, "__iter__") and not is_dict(obj)
 
 
 def prepare_arguments(arg_list, kwarg_list):
@@ -12,14 +25,20 @@ def prepare_arguments(arg_list, kwarg_list):
     min_length = 1e20
     for arg in arg_list:
         if is_iterator(arg):
-            min_length = min(len(arg), min_length)
+            try:
+                min_length = min(len(arg), min_length)
+            except:
+                pass
             arg_generator.append(iter(arg))
         else:
             arg_generator.append(repeat(arg))
 
     for key, arg in kwarg_list.items():
         if is_iterator(arg):
-            min_length = min(len(arg), min_length)
+            try:
+                min_length = min(len(arg), min_length)
+            except:
+                pass
             kwarg_generator[key] = iter(arg)
         else:
             kwarg_generator[key] = repeat(arg)
